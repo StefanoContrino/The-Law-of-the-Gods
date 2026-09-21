@@ -30,6 +30,16 @@ Mods: {
 				DisplayName: Deep Scale
 				Tooltip: ""
 			}
+
+			DeepShortsword: {
+				Tooltip: ""
+				DisplayName: Deep Shortsword
+			}
+
+			DeepBroadsword: {
+				Tooltip: ""
+				DisplayName: Deep Broadsword
+			}
 		}
 
 		Projectiles.TheJewsBloodSlash.DisplayName: The Jews Blood Slash

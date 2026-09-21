@@ -3,20 +3,11 @@
 
 Mods: {
 	TheLawOfTheGods: {
-		Tiles: {
-			ConsecratedSapling: {
-				DisplayName: Consecrated Sapling
-			}
-		}
+		Tiles.ConsecratedSapling.DisplayName: Consecrated Sapling
 
 		Items: {
-			ConsecratedWood: {
-				DisplayName: Consecrated Wood
-			}
-
-			ConsecratedAcorn: {
-				DisplayName: Consecrated Acorn
-			}
+			ConsecratedWood.DisplayName: Consecrated Wood
+			ConsecratedAcorn.DisplayName: Consecrated Acorn
 		}
 
 		NPCs: {

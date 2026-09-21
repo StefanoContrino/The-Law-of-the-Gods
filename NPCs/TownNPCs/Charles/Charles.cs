@@ -14,7 +14,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace TheLawOfTheGods.NPCs.TownNPCs
+namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
 {
     
     public class Charles : ModNPC
