@@ -40,6 +40,11 @@ Mods: {
 				Tooltip: ""
 				DisplayName: Deep Broadsword
 			}
+
+			ConsecratedSeeds: {
+				DisplayName: Consecrated Seeds
+				Tooltip: ""
+			}
 		}
 
 		Projectiles.TheJewsBloodSlash.DisplayName: The Jews Blood Slash

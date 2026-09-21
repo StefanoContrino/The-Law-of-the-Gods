@@ -80,19 +80,24 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         // Viene chiamato casualmente dal gioco. Tenta di far crescere l'albero.
         public override void RandomUpdate(int i, int j)
         {
-            // 1 su 20 possibilità ogni tick di aggiornamento (circa ogni secondo reale se il tile è attivo)
+            // 1 su 20 possibilità ad ogni aggiornamento
             if (WorldGen.genRand.NextBool(20))
             {
-                // Verifica se c'è un giocatore vicino (per evitare che l'albero cresca se nessuno guarda)
-                bool isPlayerNear = WorldGen.PlayerLOS(i, j);
-                
-                // Tenta la crescita dell'albero
-                bool success = WorldGen.GrowTree(i, j);
-                
-                // Se cresce e c'è un giocatore, mostra l'effetto visivo (particelle)
+                // Trova la parte IN BASSO del germoglio (dove tocca l'erba)
+                Tile tile = Main.tile[i, j];
+                int topY = j - (tile.TileFrameY / 18); // Trova il tile superiore
+                int bottomY = topY + 1;               // Il tile inferiore è subito sotto
+
+                // Verifica se un giocatore è vicino per mostrare le particelle
+                bool isPlayerNear = WorldGen.PlayerLOS(i, bottomY);
+
+                // Tenta la crescita chiamando la BASE del germoglio
+                bool success = WorldGen.GrowTree(i, bottomY);
+
+                // Se è cresciuto, fa le particelle visive
                 if (success && isPlayerNear)
                 {
-                    WorldGen.TreeGrowFXCheck(i, j);
+                    WorldGen.TreeGrowFXCheck(i, bottomY);
                 }
             }
         }
