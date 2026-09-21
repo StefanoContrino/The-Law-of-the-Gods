@@ -52,23 +52,14 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!WorldGen.genRand.NextBool(5))
-                return;
+            Main.NewText($"SAPLING UPDATE {i},{j}");
 
-            Tile tile = Main.tile[i, j];
+            bool success = WorldGen.GrowTree(i, j);
 
-            // Trova il fondo del sapling 1x2
-            int bottomY = j;
-
-            if (tile.TileFrameY % 36 == 0)
-                bottomY++;
-
-            if (WorldGen.GrowTree(i, bottomY))
-            {
-                if (WorldGen.PlayerLOS(i, bottomY))
-                    WorldGen.TreeGrowFXCheck(i, bottomY);
-            }
+            Main.NewText($"GROW TREE: {success}");
         }
+
+
 
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
