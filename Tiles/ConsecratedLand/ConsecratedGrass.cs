@@ -10,23 +10,23 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
     {
         public override void SetStaticDefaults()
         {
-            // 1. Proprietà fisiche di base
+            // 1. Proprietà fisiche
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileBrick[Type] = true;
+
             TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Grass"]);
 
-            // 2. Unione dei bordi (Merge) con la Terra Vanilla
+            // 2. Merge con la Dirt
             Main.tileMerge[Type][TileID.Dirt] = true;
             Main.tileMerge[TileID.Dirt][Type] = true;
 
-            // 3. Polvere, Drop e Mappa
+            // 3. Drop e Mappa
             DustType = DustID.Grass; 
             RegisterItemDrop(ItemID.DirtBlock);
-
             AddMapEntry(new Color(100, 200, 100));
 
-            // 4. Sets di Terraria per la gestione dell'Erba
+            // 4. Sets di Erba UFFICIALI della 1.4.4
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
@@ -34,10 +34,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileID.Sets.CanBeDugByShovel[Type] = true;
         }
 
-        public override void NumDust(int i, int j, bool fail, ref int num)
-        {
-            num = fail ? 1 : 3;
-        }
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
