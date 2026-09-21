@@ -18,7 +18,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
 
-            // SETS CRUCIALI IN 1.4.4
             TileID.Sets.CommonSapling[Type] = true;
             TileID.Sets.TreeSapling[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true;
@@ -27,8 +26,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-            
-            // Dice al germoglio dove può essere piazzato
             TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<ConsecratedGrass>() };
 
             TileObjectData.newTile.CoordinateWidth = 16;
@@ -40,7 +37,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.newTile.LavaDeath = true;
 
-            // Registra la struttura
             TileObjectData.addTile(Type);
 
             AddMapEntry(new Color(100, 200, 100), Language.GetText("Mods.TheLawOfTheGods.Tiles.ConsecratedSapling.DisplayName"));
@@ -56,21 +52,16 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-            // Aumentata la frequenza a 1/5 per testare subito (riporta a 20 poi)
             if (WorldGen.genRand.NextBool(5))
             {
                 Tile tile = Main.tile[i, j];
-
-                // Calcolo esatto del tile di BASE (dove il sapling tocca l'erba)
-                int topY = j - (tile.TileFrameY / 18);
+                int tileFrameY = tile.TileFrameY;
+                int topY = j - (tileFrameY / 18 % 2);
                 int bottomY = topY + 1;
 
-                bool isPlayerNear = WorldGen.PlayerLOS(i, bottomY);
-
-                // WorldGen.GrowTree in 1.4.4 richiede la coordinata X e la coordinata Y del blocco INFERIORE del germoglio
                 bool success = WorldGen.GrowTree(i, bottomY);
 
-                if (success && isPlayerNear)
+                if (success && WorldGen.PlayerLOS(i, bottomY))
                 {
                     WorldGen.TreeGrowFXCheck(i, bottomY);
                 }
