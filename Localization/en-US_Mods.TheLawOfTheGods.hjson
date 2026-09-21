@@ -1,39 +1,39 @@
 # This file will automatically update with entries for new content after a build and reload.
 # Please read https://github.com/tModLoader/tModLoader/wiki/Localization to learn more about localization and these files.
 
-{
-  "Mods": {
-    "TheLawOfTheGods": {
-      "Tiles": {
-        "ConsecratedSapling": {
-          "DisplayName": "Consecrated Sapling"
-        }
-      },
-      "Items": {
-        "ConsecratedWood": {
-          "DisplayName": "Consecrated Wood"
-        },
-        "ConsecratedAcorn": {
-          "DisplayName": "Consecrated Acorn"
-        }
-      }
-    }
-  }
-}
+Mods: {
+	TheLawOfTheGods: {
+		Tiles: {
+			ConsecratedSapling: {
+				DisplayName: Consecrated Sapling
+			}
+		}
 
-NPCs: {
-	male: {
-		DisplayName: male
+		Items: {
+			ConsecratedWood: {
+				DisplayName: Consecrated Wood
+			}
 
-		TownNPCMood: {
-			Content: I am content.
-			NoHome: I hate not having a home.
-			FarFromHome: I am too far from home.
-			LoveSpace: I love having so much space.
-			DislikeCrowded: I dislike how crowded I am.
-			HateCrowded: I hate how crowded I am.
-			LikeNPC_Princess: I like {NPCName}.
-			Princess_LovesNPC: I like {NPCName}.
+			ConsecratedAcorn: {
+				DisplayName: Consecrated Acorn
+			}
+		}
+
+		NPCs: {
+			male: {
+				DisplayName: male
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
 		}
 	}
 }
