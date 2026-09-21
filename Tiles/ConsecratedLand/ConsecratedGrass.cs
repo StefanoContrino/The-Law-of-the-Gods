@@ -23,7 +23,11 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             RegisterItemDrop(ItemID.DirtBlock);
             AddMapEntry(new Color(100, 200, 100));
 
-            // SETS FONDAMENTALI PER L'ERBA IN 1.4.4
+            // SETS FONDAMENTALI PER FAR CRESCERE GLI ALBERI
+            TileID.Sets.Grass[Type] = true;
+            TileID.Sets.Conversion.Grass[Type] = true;
+            TileID.Sets.NeedsGrassFraming[Type] = true;
+            TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt;
             TileID.Sets.CanBeDugByShovel[Type] = true;
         }
 

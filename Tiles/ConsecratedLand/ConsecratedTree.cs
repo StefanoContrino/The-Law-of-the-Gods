@@ -11,7 +11,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
     {
         public override void SetStaticDefaults()
         {
-            // CRUCIALE: Dice all'albero su quale blocco può essere generato
             GrowsOnTileId = new int[] { ModContent.TileType<ConsecratedGrass>() };
         }
 
@@ -24,7 +23,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             SpecialGroupMaximumSaturationValue = 0f
         };
 
-        // Ritorna l'ID del germoglio associato a questo albero
         public override int SaplingGrowthType(ref int style)
         {
             style = 0;
@@ -33,7 +31,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override int DropWood() => ItemID.Wood;
 
-        // TEXTURE: Se uno di questi file non esiste o ha il percorso sbagliato, GrowTree fallisce silenziosamente!
         public override Asset<Texture2D> GetTexture() 
             => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree"); 
 
