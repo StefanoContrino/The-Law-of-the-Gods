@@ -29,7 +29,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<ConsecratedGrass>() };
 
             TileObjectData.newTile.CoordinateWidth = 16;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
@@ -52,21 +52,24 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-            if (WorldGen.genRand.NextBool(5))
+            if (!WorldGen.genRand.NextBool(5))
+                return;
+
+            Tile tile = Main.tile[i, j];
+
+            // Trova il fondo del sapling 1x2
+            int bottomY = j;
+
+            if (tile.TileFrameY % 36 == 0)
+                bottomY++;
+
+            if (WorldGen.GrowTree(i, bottomY))
             {
-                Tile tile = Main.tile[i, j];
-                int tileFrameY = tile.TileFrameY;
-                int topY = j - (tileFrameY / 18 % 2);
-                int bottomY = topY + 1;
-
-                bool success = WorldGen.GrowTree(i, bottomY);
-
-                if (success && WorldGen.PlayerLOS(i, bottomY))
-                {
+                if (WorldGen.PlayerLOS(i, bottomY))
                     WorldGen.TreeGrowFXCheck(i, bottomY);
-                }
             }
         }
+
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
     }
