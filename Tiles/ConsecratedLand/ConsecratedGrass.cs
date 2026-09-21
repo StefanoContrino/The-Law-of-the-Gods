@@ -23,7 +23,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             RegisterItemDrop(ItemID.DirtBlock);
             AddMapEntry(new Color(100, 200, 100));
 
-            // SET FONDAMENTALI PER FAR FUNZIONARE IL FERTILIZZANTE SUI SAPLING
+            // Insiemi obbligatori per far convalidare il terreno a WorldGen.GrowTree
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;

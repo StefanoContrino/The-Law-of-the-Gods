@@ -18,6 +18,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
 
+            // Insiemi necessari per il fertilizzante
             TileID.Sets.CommonSapling[Type] = true;
             TileID.Sets.TreeSapling[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true;
@@ -29,7 +30,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<ConsecratedGrass>() };
 
             TileObjectData.newTile.CoordinateWidth = 16;
-            // CORRETTO: [16, 18] è obbligatorio per i sapling in Terraria 1.4+
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.StyleHorizontal = true;
@@ -54,6 +54,14 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
+            Tile tile = Main.tile[i, j];
+
+            // Se j punta alla metà inferiore del sapling, sale alla cima per non far fallire GrowTree
+            if (tile.TileFrameY >= 18)
+            {
+                j--;
+            }
+
             if (WorldGen.genRand.NextBool(20))
             {
                 bool isPlayerNear = WorldGen.PlayerLOS(i, j);
