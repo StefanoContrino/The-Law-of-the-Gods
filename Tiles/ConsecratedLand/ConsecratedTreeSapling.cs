@@ -14,23 +14,21 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
     {
         public override void SetStaticDefaults()
         {
-            // Proprietà di base
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
 
-            // Sets di Terraria 1.4.4 per i sapling
+            // SETS CRUCIALI IN 1.4.4
             TileID.Sets.CommonSapling[Type] = true;
             TileID.Sets.TreeSapling[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true;
 
-            // TileObjectData
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             
-            // Definisce l'erba su cui può essere piazzato
+            // Dice al germoglio dove può essere piazzato
             TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<ConsecratedGrass>() };
 
             TileObjectData.newTile.CoordinateWidth = 16;
@@ -42,6 +40,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.newTile.LavaDeath = true;
 
+            // Registra la struttura
             TileObjectData.addTile(Type);
 
             AddMapEntry(new Color(100, 200, 100), Language.GetText("Mods.TheLawOfTheGods.Tiles.ConsecratedSapling.DisplayName"));
@@ -55,21 +54,20 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             }
         }
 
-        // tModLoader 1.4.4 invoca Automaticamente questo metodo a caso nella mappa
         public override void RandomUpdate(int i, int j)
         {
-            // 1 possibilità su 10 ad ogni RandomUpdate
-            if (WorldGen.genRand.NextBool(10))
+            // Aumentata la frequenza a 1/5 per testare subito (riporta a 20 poi)
+            if (WorldGen.genRand.NextBool(5))
             {
                 Tile tile = Main.tile[i, j];
 
-                // Calcola la Y della parte inferiore (base) del sapling
+                // Calcolo esatto del tile di BASE (dove il sapling tocca l'erba)
                 int topY = j - (tile.TileFrameY / 18);
                 int bottomY = topY + 1;
 
                 bool isPlayerNear = WorldGen.PlayerLOS(i, bottomY);
 
-                // Esegue il tentativo di crescita sulla coordinata inferiore
+                // WorldGen.GrowTree in 1.4.4 richiede la coordinata X e la coordinata Y del blocco INFERIORE del germoglio
                 bool success = WorldGen.GrowTree(i, bottomY);
 
                 if (success && isPlayerNear)

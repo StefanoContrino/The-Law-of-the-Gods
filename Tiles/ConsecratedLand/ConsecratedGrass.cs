@@ -10,23 +10,20 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
     {
         public override void SetStaticDefaults()
         {
-            // 1. Proprietà fisiche
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileBrick[Type] = true;
 
             TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Grass"]);
 
-            // 2. Merge con la Dirt
             Main.tileMerge[Type][TileID.Dirt] = true;
             Main.tileMerge[TileID.Dirt][Type] = true;
 
-            // 3. Drop e Mappa
             DustType = DustID.Grass; 
             RegisterItemDrop(ItemID.DirtBlock);
             AddMapEntry(new Color(100, 200, 100));
 
-            // 4. Sets di Erba UFFICIALI della 1.4.4
+            // SETS FONDAMENTALI PER L'ERBA IN 1.4.4
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
