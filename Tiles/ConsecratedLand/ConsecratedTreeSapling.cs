@@ -51,13 +51,10 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         }
 
         public override void RandomUpdate(int i, int j)
-        {
-            Main.NewText($"SAPLING UPDATE {i},{j}");
+{
+    Main.NewText("SAPLING UPDATE");
+}
 
-            bool success = WorldGen.GrowTree(i, j);
-
-            Main.NewText($"GROW TREE: {success}");
-        }
 
 
 
