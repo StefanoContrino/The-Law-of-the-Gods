@@ -44,8 +44,11 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedTree_Branches"); // I rami
 
         // 3. Che legno cade
-        public override int DropWood() 
+       /* public override int DropWood() 
             => ModContent.ItemType<Items.Placeables.FurnitureConsecratedwood.Consecratedwood>();
+            */
+
+            public override int DropWood() => ItemID.Wood;
 
         // 4. Che germoglio usa per crescere
         public override int SaplingGrowthType(ref int style)

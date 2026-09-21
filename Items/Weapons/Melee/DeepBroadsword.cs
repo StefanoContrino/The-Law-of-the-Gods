@@ -41,7 +41,7 @@ namespace TheLawOfTheGods.Items.Weapons.Melee
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<DeepScale>(), 8) // Richiede 8 Deep Scale
-                .AddTile(TileID.Anvils) // Richiede un'Anudine (Anvil) qualsiasi
+                .AddTile(TileID.Anvils) // Richiede un'incudine (Anvil) qualsiasi
                 .Register();
         }
     }
