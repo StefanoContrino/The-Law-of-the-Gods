@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -22,31 +21,26 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileID.Sets.CommonSapling[Type] = true;
             TileID.Sets.TreeSapling[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true;
-            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Plant"]);
 
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-            TileObjectData.newTile.UsesCustomCanPlace = true;
-            
-            // FONDAMENTALE: 16 pixel per il blocco sopra, 18 per quello sotto
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
-            TileObjectData.newTile.CoordinateWidth = 16;
-            TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<ConsecratedGrass>() };
+
+            TileObjectData.newTile.CoordinateWidth = 16;
+            // CORRETTO: [16, 18] è obbligatorio per i sapling in Terraria 1.4+
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
+            TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
+            TileObjectData.newTile.RandomStyleRange = 3;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.newTile.LavaDeath = true;
-            TileObjectData.newTile.RandomStyleRange = 3;
 
             TileObjectData.addTile(Type);
 
-            AddMapEntry(new Color(100, 200, 100), Language.GetText("MapObject.Sapling"));
-            DustType = DustID.Grass;
-            
-            // FONDAMENTALE PER IL FERTILIZZANTE
+            AddMapEntry(new Color(100, 200, 100), Language.GetText("Mods.TheLawOfTheGods.Tiles.ConsecratedSapling.DisplayName"));
             AdjTiles = new int[] { TileID.Saplings };
         }
 

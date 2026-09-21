@@ -1,9 +1,9 @@
-using Terraria;
-using Terraria.ModLoader;
-using ReLogic.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
+using ReLogic.Content;
+using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace TheLawOfTheGods.Tiles.ConsecratedLand
 {
