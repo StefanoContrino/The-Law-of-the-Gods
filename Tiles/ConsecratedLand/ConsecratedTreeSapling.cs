@@ -18,7 +18,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
 
-            // Insiemi necessari per il fertilizzante
             TileID.Sets.CommonSapling[Type] = true;
             TileID.Sets.TreeSapling[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true;
@@ -54,13 +53,41 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
+            // Coordinate della cima del germoglio per evitare chiamate sull'altra metà del tile
             Tile tile = Main.tile[i, j];
-            if (tile.TileType != Type) return;
+            if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
+            {
+                WorldGen.GrowTree(i, j);
+            }
+        }
 
-            if (tile.TileFrameY < 18)
-                j++;
+        public override bool RightClick(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+            
+            // Gestione dell'uso del fertilizzante vanilla sul germoglio
+            if (player.HeldItem.type == ItemID.Fertilizer)
+            {
+                // Trova la base del sapling prima di far crescere l'albero
+                Tile tile = Main.tile[i, j];
+                int topY = j;
+                if (tile.TileFrameY >= 18)
+                    topY--;
 
-            WorldGen.GrowTree(i, j);
+                if (WorldGen.GrowTree(i, topY))
+                {
+                    WorldGen.TreeGrowFXCheck(i, topY);
+                    
+                    // Consuma 1 unita di fertilizzante dall'inventario del giocatore
+                    if (player.HeldItem.stack > 1)
+                        player.HeldItem.stack--;
+                    else
+                        player.HeldItem.TurnToAir();
+
+                    return true;
+                }
+            }
+            return base.RightClick(i, j);
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
