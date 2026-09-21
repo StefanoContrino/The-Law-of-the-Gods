@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace TheLawOfTheGods.Content.Items.Materials
+namespace TheLawOfTheGods.Items.Materials
 {
     public class DeepScale : ModItem
     {
