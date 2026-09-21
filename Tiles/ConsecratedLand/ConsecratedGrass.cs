@@ -22,25 +22,23 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
             // 3. Polvere, Drop e Mappa
             DustType = DustID.Grass; 
-            RegisterItemDrop(ItemID.DirtBlock); // Scavando l'erba ottieni il blocco di terra vanilla
+            RegisterItemDrop(ItemID.DirtBlock);
 
-            AddMapEntry(new Color(100, 200, 100)); // Colore sulla minimappa
+            AddMapEntry(new Color(100, 200, 100));
 
             // 4. Sets di Terraria per la gestione dell'Erba
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
-            TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt; // Si collega alla terra vanilla
+            TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt;
             TileID.Sets.CanBeDugByShovel[Type] = true;
         }
 
-        // 5. Quantità di polvere generata alla rottura
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = fail ? 1 : 3;
         }
 
-        // 6. Trasformazione in Terra Vanilla al primo colpo di piccone
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
             if (fail && !effectOnly)
@@ -49,7 +47,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             }
         }
 
-        // 7. Supporto per la Pozione Biome Sight
         public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
         {
             sightColor = new Color(100, 200, 100);
