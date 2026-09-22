@@ -50,6 +50,11 @@ Mods: {
 				DisplayName: Example Block
 				Tooltip: ""
 			}
+
+			ConsecratedGrassSeeds: {
+				DisplayName: Consecrated Grass Seeds
+				Tooltip: ""
+			}
 		}
 
 		Projectiles.TheJewsBloodSlash.DisplayName: The Jews Blood Slash

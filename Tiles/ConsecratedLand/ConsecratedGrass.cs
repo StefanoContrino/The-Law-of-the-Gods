@@ -12,8 +12,11 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
-            Main.tileBrick[Type] = true;
+            Main.tileMergeDirt[Type] = true;
+            Main.tileMerge[Type][TileID.Dirt] = true;
+            Main.tileMerge[TileID.Dirt][Type] = true;
             TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Grass"]);
+            
 
             RegisterItemDrop(ItemID.DirtBlock);
             AddMapEntry(new Color(133, 109, 140));

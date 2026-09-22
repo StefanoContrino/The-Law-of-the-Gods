@@ -5,9 +5,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using TheLawOfTheGods.Tiles.ConsecratedLand;
 
-namespace TheLawOfTheGods.Items
+namespace TheLawOfTheGods.Items.Placeables.ConsecratedLand
 {
-    public class ConsecratedSeeds : ModItem
+    public class ConsecratedGrassSeeds : ModItem
     {
         public override void SetStaticDefaults()
         {
