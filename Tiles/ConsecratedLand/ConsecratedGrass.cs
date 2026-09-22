@@ -8,40 +8,64 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 {
     public class ConsecratedGrass : ModTile
     {
-        public override void SetStaticDefaults()
+         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileBrick[Type] = true;
-
             TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Grass"]);
 
             Main.tileMerge[Type][TileID.Dirt] = true;
             Main.tileMerge[TileID.Dirt][Type] = true;
 
-            DustType = DustID.Grass; 
-            RegisterItemDrop(ItemID.DirtBlock);
-            AddMapEntry(new Color(100, 200, 100));
+            Main.tileMerge[Type][TileID.Grass] = true;
+            Main.tileMerge[TileID.Grass][Type] = true;
+
+            Main.tileMerge[Type][TileID.CorruptGrass] = true;
+            Main.tileMerge[TileID.CorruptGrass][Type] = true;
+
+            Main.tileMerge[Type][TileID.HallowedGrass] = true;
+            Main.tileMerge[TileID.HallowedGrass][Type] = true;
+
+            Main.tileMerge[Type][TileID.CrimsonGrass] = true;
+
+            RegisterItemDrop(TileID.Dirt);
+
+            AddMapEntry(new Color(133, 109, 140));
 
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
+
+            //Grass framing (<3 terraria devs)
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt;
             TileID.Sets.CanBeDugByShovel[Type] = true;
         }
-        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+        int animationFrameWidth = 288;
+        public override void NumDust(int i, int j, bool fail, ref int Type)
+        {
+            Type = fail ? 1 : 3;
+        }
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
             if (fail && !effectOnly)
             {
                 Main.tile[i, j].TileType = TileID.Dirt;
             }
-        }
-
+        }        
         public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
         {
             sightColor = new Color(100, 200, 100);
             return true;
         }
+
+        public override void RandomUpdate(int i, int j)
+        {
+            Tile tile = Main.tile[i, j];
+            Tile up = Main.tile[i, j - 1];
+            Tile up2 = Main.tile[i, j - 2];
+            
+        }
+
     }
 }
