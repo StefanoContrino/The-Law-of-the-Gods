@@ -39,18 +39,11 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.Sapling"));
             AdjTiles = new int[] { TileID.Saplings };
-
-            TileID.Sets.Grass[Type] = true;
-            TileID.Sets.Conversion.Grass[Type] = true;
-            TileID.Sets.NeedsGrassFraming[Type] = true;
-            TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt;
-
-            Main.tileAxe[Type] = false;
         }
 
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects effects)
         {
-            if (i % 2 == 1)
+            if (i % 2 == 0)
             {
                 effects = SpriteEffects.FlipHorizontally;
             }
@@ -71,11 +64,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = fail ? 1 : 3;
-        }
-
-        public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
-        {
-            return false;
         }
     }
 }
