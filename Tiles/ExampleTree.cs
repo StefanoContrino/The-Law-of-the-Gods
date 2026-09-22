@@ -57,9 +57,5 @@ namespace TheLawOfTheGods.Tiles
 			Item.NewItem(WorldGen.GetItemSource_FromTreeShake(x, y), new Vector2(x, y) * 16, ModContent.ItemType<Items.Placeable.ExampleBlock>());
 			return false;
 		}
-
-		public override int TreeLeaf() {
-			return ModContent.GoreType<ExampleTreeLeaf>();
-		}
 	}
 }
