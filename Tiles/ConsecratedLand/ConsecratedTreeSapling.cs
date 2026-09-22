@@ -51,34 +51,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-<<<<<<< Updated upstream
-           if (!WorldGen.genRand.NextBool(20)) {
-				return;
-			}
-
-			Tile tile = Framing.GetTileSafely(i, j); // Safely get the tile at the given coordinates
-			bool growSuccess; // A bool to see if the tree growing was successful.
-
-			// Style 0 is for the ExampleTree sapling, and style 1 is for ExamplePalmTree, so here we check frameX to call the correct method.
-			// Any pixels before 54 on the tilesheet are for ExampleTree while any pixels above it are for ExamplePalmTree
-			if (tile.TileFrameX < 54) {
-				growSuccess = WorldGen.GrowTree(i, j);
-			}
-			else {
-				growSuccess = WorldGen.GrowPalmTree(i, j);
-			}
-
-			// A flag to check if a player is near the sapling
-			bool isPlayerNear = WorldGen.PlayerLOS(i, j);
-
-			// If growing the tree was a success and the player is near, show growing effects
-			if (growSuccess && isPlayerNear) {
-				WorldGen.TreeGrowFXCheck(i, j);
-			}
-		}
-
-        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
-=======
             if (WorldGen.genRand.NextBool(20))
             {
                 bool isPlayerNear = WorldGen.PlayerLOS(i, j);
@@ -93,6 +65,5 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         {
             num = fail ? 1 : 3;
         }
->>>>>>> Stashed changes
     }
 }

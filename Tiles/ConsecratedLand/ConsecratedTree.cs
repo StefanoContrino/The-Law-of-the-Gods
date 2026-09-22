@@ -32,13 +32,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             return ModContent.TileType<ConsecratedTreeSapling>();
         }
 
-<<<<<<< Updated upstream
-        public override void SetTreeFoliageSettings(int i, int j, Tile tile, int xoffset, ref int treeFrame, int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) {
-			// This is where fancy code could go, but let's save that for an advanced example
-		}
-
-
-=======
         // public override void SetTreeFoliageSettings(int i, int j, Tile tile, int xoffset, ref int treeFrame, int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) {
 			
 		// }
@@ -47,7 +40,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             //What does this code do?
             //treeFrame = (i + j * j) % 3;
         }
->>>>>>> Stashed changes
         public override int DropWood() => ItemID.Wood;
         public override int CreateDust() => DustID.Grass; // Esempio per usare la polvere dell'erba vanilla
 
