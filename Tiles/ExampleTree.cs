@@ -27,9 +27,9 @@ namespace TheLawOfTheGods.Tiles
 		public override void SetStaticDefaults() {
 			// Makes Example Tree grow on ExampleBlock
 			GrowsOnTileId = [ModContent.TileType<ExampleBlock>()];
-			texture = ModContent.Request<Texture2D>("ExampleMod/Content/Tiles/Plants/ExampleTree");
-			branchesTexture = ModContent.Request<Texture2D>("ExampleMod/Content/Tiles/Plants/ExampleTree_Branches");
-			topsTexture = ModContent.Request<Texture2D>("ExampleMod/Content/Tiles/Plants/ExampleTree_Tops");
+			texture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ExampleTree");
+			branchesTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ExampleTree_Branches");
+			topsTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ExampleTree_Tops");
 		}
 
 		// This is the primary texture for the trunk. Branches and foliage use different settings.

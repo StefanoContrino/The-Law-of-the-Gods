@@ -25,9 +25,9 @@ namespace TheLawOfTheGods.Tiles
 		public override void SetStaticDefaults() {
 			// Makes Example Palm Tree grow on Gold Ore
 			GrowsOnTileId = [TileID.Gold];
-			texture = ModContent.Request<Texture2D>("ExampleMod/Content/Tiles/Plants/ExamplePalmTree");
-			oasisTopsTexture = ModContent.Request<Texture2D>("ExampleMod/Content/Tiles/Plants/ExamplePalmOasisTree_Tops");
-			topsTexture = ModContent.Request<Texture2D>("ExampleMod/Content/Tiles/Plants/ExamplePalmTree_Tops");
+			texture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ExamplePalmTree");
+			oasisTopsTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ExamplePalmOasisTree_Tops");
+			topsTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ExamplePalmTree_Tops");
 		}
 
 		// This is the primary texture for the trunk. Branches and foliage use different settings.
