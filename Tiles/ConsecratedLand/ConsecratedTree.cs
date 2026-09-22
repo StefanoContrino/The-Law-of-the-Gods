@@ -11,6 +11,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
     {
         public override void SetStaticDefaults()
         {
+            // Imposta l'erba su cui cresce l'albero
             GrowsOnTileId = new int[] { ModContent.TileType<ConsecratedGrass>() };
         }
 
@@ -23,6 +24,12 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             SpecialGroupMaximumSaturationValue = 0f
         };
 
+        // Metodo fondamentale mancante e richiesto da ModTree (abstract)
+        public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight)
+        {
+            // Puoi lasciare la logica standard o personalizzarla se necessario
+        }
+
         public override int SaplingGrowthType(ref int style)
         {
             style = 0;
@@ -34,6 +41,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         public override Asset<Texture2D> GetTexture() 
             => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree"); 
 
+        // Restituisce il numero di cime presenti nel file delle texture (vedendone 3 nell'immagine, restituiamo 3)
         public override Asset<Texture2D> GetTopTextures() 
             => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Tops");
 

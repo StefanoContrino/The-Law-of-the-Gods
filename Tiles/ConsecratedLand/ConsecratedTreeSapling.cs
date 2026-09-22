@@ -18,7 +18,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
 
-            // Questi due Set abilitano l'interazione automatica con ItemID.Fertilizer
             TileID.Sets.CommonSapling[Type] = true;
             TileID.Sets.TreeSapling[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true;
@@ -54,7 +53,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-            // Trova sempre la coordinata Y della CIMA del sapling
             Tile tile = Main.tile[i, j];
             int topY = j - tile.TileFrameY / 18;
 
