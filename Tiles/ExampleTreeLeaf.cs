@@ -6,7 +6,7 @@ namespace TheLawOfTheGods.Tiles
 {
 	public class ExampleTreeLeaf : ModGore
 	{
-		public override string Texture => "ExampleMod/Content/Tiles/Plants/ExampleTree_Leaf";
+		public override string Texture => "TheLawOfTheGods/Tiles/ExampleTree_Leaf";
 
 		public override void SetStaticDefaults() {
 			ChildSafety.SafeGore[Type] = true; // Leaf gore should appear regardless of the "Blood and Gore" setting
