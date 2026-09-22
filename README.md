@@ -13,7 +13,7 @@ Current planned features:
 * 17 new enemies, 8 in Pre-Hardmode and 9 in Hardmode
 * 3 new biomes: 2 new surface biomes, one of which also generates underground, and 1 space biome
   * Innsmouth
-  * Consecrated Land
+  * The Consecrated Land
   * The Floating Ruins of R'lyeh
 * A new Snow Temple to expand the existing biome
 * 4 new bosses inspired by Lovecraft's works, 2 in Pre-Hardmode and 2 in Hardmode
