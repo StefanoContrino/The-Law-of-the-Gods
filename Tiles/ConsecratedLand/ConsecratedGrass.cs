@@ -29,9 +29,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileID.Sets.NeedsGrassFramingDirt[Type] = TileID.Dirt;
             TileID.Sets.CanBeDugByShovel[Type] = true;
         }
-
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
-
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
             if (fail && !effectOnly)
