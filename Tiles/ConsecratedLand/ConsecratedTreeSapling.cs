@@ -65,5 +65,10 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         {
             num = fail ? 1 : 3;
         }
+
+        public override bool IsTileBiomeSightable(int i, int j, ref Color sightColor)
+        {
+            return false;
+        }
     }
 }
