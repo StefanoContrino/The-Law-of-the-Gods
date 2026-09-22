@@ -26,11 +26,12 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             // CRUCIALE: Dice al gioco che questo tile si comporta come una pianta (interagisce con il fertilizzante)
             TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Plant"]);
 
+            TileObjectData.newTile.UsesCustomCanPlace = true;
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<ConsecratedGrass>()];
+            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<ConsecratedGrass>(), TileID.Grass];
 
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinateHeights = [16, 18];
@@ -59,19 +60,30 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-            if (!WorldGen.genRand.NextBool(20))
-            {
-                return;
-            }
+           if (!WorldGen.genRand.NextBool(20)) {
+				return;
+			}
 
-            bool growSuccess = WorldGen.GrowTree(i, j);
-            bool isPlayerNear = WorldGen.PlayerLOS(i, j);
+			Tile tile = Framing.GetTileSafely(i, j); // Safely get the tile at the given coordinates
+			bool growSuccess; // A bool to see if the tree growing was successful.
 
-            if (growSuccess && isPlayerNear)
-            {
-                WorldGen.TreeGrowFXCheck(i, j);
-            }
-        }
+			// Style 0 is for the ExampleTree sapling, and style 1 is for ExamplePalmTree, so here we check frameX to call the correct method.
+			// Any pixels before 54 on the tilesheet are for ExampleTree while any pixels above it are for ExamplePalmTree
+			if (tile.TileFrameX < 54) {
+				growSuccess = WorldGen.GrowTree(i, j);
+			}
+			else {
+				growSuccess = WorldGen.GrowPalmTree(i, j);
+			}
+
+			// A flag to check if a player is near the sapling
+			bool isPlayerNear = WorldGen.PlayerLOS(i, j);
+
+			// If growing the tree was a success and the player is near, show growing effects
+			if (growSuccess && isPlayerNear) {
+				WorldGen.TreeGrowFXCheck(i, j);
+			}
+		}
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
     }

@@ -40,6 +40,11 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             return ModContent.TileType<ConsecratedTreeSapling>();
         }
 
+        public override void SetTreeFoliageSettings(int i, int j, Tile tile, int xoffset, ref int treeFrame, int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) {
+			// This is where fancy code could go, but let's save that for an advanced example
+		}
+
+
         public override int DropWood() => ItemID.Wood;
 
         // Restituiscono le texture salvate in precedenza
