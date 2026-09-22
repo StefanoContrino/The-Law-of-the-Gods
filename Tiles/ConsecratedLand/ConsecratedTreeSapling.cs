@@ -26,26 +26,30 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
-            TileObjectData.newTile.AnchorValidTiles = new int[] { ModContent.TileType<ConsecratedGrass>() };
+            TileObjectData.newTile.AnchorValidTiles = [ModContent.TileType<ConsecratedGrass>()];
 
             TileObjectData.newTile.CoordinateWidth = 16;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = [16, 18];
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
             TileObjectData.newTile.RandomStyleRange = 3;
+            TileObjectData.newTile.StyleMultiplier = 3; // Fondamentale se hai più stili di sapling/albero
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
             TileObjectData.newTile.LavaDeath = true;
 
             TileObjectData.addTile(Type);
 
-            AddMapEntry(new Color(100, 200, 100), Language.GetText("Mods.TheLawOfTheGods.Tiles.ConsecratedSapling.DisplayName"));
-            AdjTiles = new int[] { TileID.Saplings };
+            // Usa MapObject.Sapling per sicurezza o la tua chiave hjson
+            AddMapEntry(new Color(100, 200, 100), Language.GetText("MapObject.Sapling"));
+            
+            AdjTiles = [TileID.Saplings];
         }
 
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects effects)
         {
-            if (i % 2 == 1)
+            // Modificato leggermente per seguire lo standard di alternanza dell'ExampleMod
+            if (i % 2 == 0)
             {
                 effects = SpriteEffects.FlipHorizontally;
             }
@@ -53,17 +57,19 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override void RandomUpdate(int i, int j)
         {
-            Tile tile = Main.tile[i, j];
-            int topY = j - tile.TileFrameY / 18;
-
-            if (WorldGen.genRand.NextBool(20))
+            // Controllo casuale per la crescita (1 volta su 20 tick di aggiornamento casuale)
+            if (!WorldGen.genRand.NextBool(20))
             {
-                bool isPlayerNear = WorldGen.PlayerLOS(i, topY);
-                bool success = WorldGen.GrowTree(i, topY);
-                if (success && isPlayerNear)
-                {
-                    WorldGen.TreeGrowFXCheck(i, topY);
-                }
+                return;
+            }
+
+            // Metodo pulito e sicuro preso dall'ExampleMod
+            bool growSuccess = WorldGen.GrowTree(i, j);
+            bool isPlayerNear = WorldGen.PlayerLOS(i, j);
+
+            if (growSuccess && isPlayerNear)
+            {
+                WorldGen.TreeGrowFXCheck(i, j);
             }
         }
 

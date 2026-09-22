@@ -4,15 +4,25 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheLawOfTheGods.Tiles.ConsecratedLand; // Assicurati che i namespace siano corretti
 
 namespace TheLawOfTheGods.Tiles.ConsecratedLand
 {
     public class ConsecratedTree : ModTree
     {
+        private Asset<Texture2D> texture;
+        private Asset<Texture2D> branchesTexture;
+        private Asset<Texture2D> topsTexture;
+
         public override void SetStaticDefaults()
         {
             // Imposta l'erba su cui cresce l'albero
-            GrowsOnTileId = new int[] { ModContent.TileType<ConsecratedGrass>() };
+            GrowsOnTileId = [ModContent.TileType<ConsecratedGrass>()];
+
+            // Caricamento corretto delle texture in SetStaticDefaults
+            texture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree");
+            branchesTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Branches");
+            topsTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Tops");
         }
 
         public override TreePaintingSettings TreeShaderSettings => new TreePaintingSettings
@@ -24,12 +34,6 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             SpecialGroupMaximumSaturationValue = 0f
         };
 
-        // Metodo fondamentale mancante e richiesto da ModTree (abstract)
-        public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight)
-        {
-            // Puoi lasciare la logica standard o personalizzarla se necessario
-        }
-
         public override int SaplingGrowthType(ref int style)
         {
             style = 0;
@@ -38,14 +42,11 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 
         public override int DropWood() => ItemID.Wood;
 
-        public override Asset<Texture2D> GetTexture() 
-            => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree"); 
+        // Restituiscono le texture salvate in precedenza
+        public override Asset<Texture2D> GetTexture() => texture;
 
-        // Restituisce il numero di cime presenti nel file delle texture (vedendone 3 nell'immagine, restituiamo 3)
-        public override Asset<Texture2D> GetTopTextures() 
-            => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Tops");
+        public override Asset<Texture2D> GetTopTextures() => topsTexture;
 
-        public override Asset<Texture2D> GetBranchTextures() 
-            => ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Branches");
+        public override Asset<Texture2D> GetBranchTextures() => branchesTexture;
     }
 }
