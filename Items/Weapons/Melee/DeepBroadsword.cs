@@ -34,7 +34,7 @@ namespace TheLawOfTheGods.Items.Weapons.Melee
 
             // Valore e Rarità
             Item.rare = ItemRarityID.Green; // Rarità Verde
-            Item.value = Item.sellPrice(silver: 75); // Valore di vendita: 75 d'argento
+            Item.value = Item.sellPrice(gold: 6);
         }
 
         public override void AddRecipes()

@@ -16,7 +16,7 @@ namespace TheLawOfTheGods.Items.Materials
             Item.height = 24;
 
             Item.maxStack = 9999;
-            Item.value = Item.buyPrice(silver: 50);
+            Item.value = Item.buyPrice(gold: 1);
 
             Item.rare = Terraria.ID.ItemRarityID.Blue;
         }

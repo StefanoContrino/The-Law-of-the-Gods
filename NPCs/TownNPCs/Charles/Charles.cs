@@ -7,6 +7,8 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using TheLawOfTheGods.Items.Materials;
+using TheLawOfTheGods.Items.Weapons.Melee;
 
 namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
 {
@@ -16,11 +18,11 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[Type] = 25;
+            Main.npcFrameCount[Type] = 25; // I frame totali di Charles
             NPCID.Sets.ExtraFramesCount[Type] = 9;
             NPCID.Sets.AttackFrameCount[Type] = 4;
             NPCID.Sets.DangerDetectRange[Type] = 500;
-            NPCID.Sets.AttackType[Type] = 3;
+            NPCID.Sets.AttackType[Type] = 3; // Attacca corpo a corpo
             NPCID.Sets.AttackTime[Type] = 60;
             NPCID.Sets.AttackAverageChance[Type] = 10;
             NPCID.Sets.ShimmerTownTransform[Type] = false;
@@ -44,11 +46,24 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
-            AnimationType = NPCID.Merchant;
-            NPC.Happiness.SetBiomeAffection<OceanBiome>(AffectionLevel.Love);
+            AnimationType = NPCID.Merchant; // Avendo preso come riferimento gli sprites del mercante, usa la sua stessa animazione
+
+            // Tutto ciò che ama, che gli piace, che non gli piace e che odia
+
             NPC.Happiness.SetBiomeAffection<JungleBiome>(AffectionLevel.Hate);
+            NPC.Happiness.SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike);
+            NPC.Happiness.SetBiomeAffection<DesertBiome>(AffectionLevel.Like);
+            NPC.Happiness.SetBiomeAffection<OceanBiome>(AffectionLevel.Love);
+            NPC.Happiness.SetNPCAffection(NPCID.PartyGirl, AffectionLevel.Hate);
+            NPC.Happiness.SetNPCAffection(NPCID.Cyborg, AffectionLevel.Dislike);
+            NPC.Happiness.SetNPCAffection(NPCID.Merchant, AffectionLevel.Like);
+            NPC.Happiness.SetNPCAffection(NPCID.SantaClaus, AffectionLevel.Like);
+            NPC.Happiness.SetNPCAffection(NPCID.Pirate, AffectionLevel.Love);
             NPC.Happiness.SetNPCAffection(NPCID.Guide, AffectionLevel.Love);
-            NPCHappiness.AffectionLevelToPriceMultiplier[AffectionLevel.Hate] = 15;
+            NPCHappiness.AffectionLevelToPriceMultiplier[AffectionLevel.Hate] = 2;
+            NPCHappiness.AffectionLevelToPriceMultiplier[AffectionLevel.Dislike] = 1.5f;
+            NPCHappiness.AffectionLevelToPriceMultiplier[AffectionLevel.Like] = 0.8f;
+            NPCHappiness.AffectionLevelToPriceMultiplier[AffectionLevel.Love] = 0.5f;
         }
 
         // I dialoghi casuali appaiono direttamente nel fumetto quando parli con Charles
@@ -140,12 +155,14 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
         {
             var npcShop = new NPCShop(Type, ShopName);
 
-            npcShop.Add(ItemID.Coral);
-            npcShop.Add(ItemID.Starfish);
-            npcShop.Add(ItemID.Seashell);
+            npcShop.Add(ModContent.ItemType<DeepScale>());
+            npcShop.Add(ModContent.ItemType<DeepShortsword>());
+            npcShop.Add(ModContent.ItemType<DeepBroadsword>());
 
             // Per aggiungere un oggetto personalizzato della mod:
             // npcShop.Add(ModContent.ItemType<NomeDelTuoOggetto>());
+            // Invece per un item vanilla:
+            // npcShop.Add(ItemID.NOME);
 
             npcShop.Register();
         }
@@ -157,6 +174,8 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
 
         public override void HitEffect(NPC.HitInfo hit)
         {
+
+            // Se la vita di Charles scende a 0 o inferiore, appaiono le sue gores
             if (NPC.life <= 0)
             {
                 if (!Main.dedServ)

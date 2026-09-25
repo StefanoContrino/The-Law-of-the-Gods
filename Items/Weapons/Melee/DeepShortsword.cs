@@ -32,7 +32,7 @@ namespace TheLawOfTheGods.Items.Weapons.Melee
 
             // Valore e Rarità
             Item.rare = ItemRarityID.Green;
-            Item.value = Item.sellPrice(silver: 60);
+            Item.value = Item.sellPrice(gold: 3);
         }
 
         public override void AddRecipes()
