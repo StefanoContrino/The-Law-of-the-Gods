@@ -16,9 +16,9 @@ using Terraria.Utilities;
 
 namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
 {
-    
     public class Charles : ModNPC
     {
+        public const string ShopName = "Shop";
 
         public override void SetStaticDefaults()
         {
@@ -26,17 +26,16 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
             NPCID.Sets.ExtraFramesCount[Type] = 9;
             NPCID.Sets.AttackFrameCount[Type] = 4;
             NPCID.Sets.DangerDetectRange[Type] = 500;
-            NPCID.Sets.AttackType[Type] = 0;
+            NPCID.Sets.AttackType[Type] = 3;
             NPCID.Sets.AttackTime[Type] = 60;
             NPCID.Sets.AttackAverageChance[Type] = 10;
             NPCID.Sets.ShimmerTownTransform[Type] = false;
             
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
-                Velocity = 1f // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
+                Velocity = 1f
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifiers);
-
         }
 
         public override void SetDefaults()
@@ -53,49 +52,74 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
-            AnimationType = NPCID.PartyGirl;
+            AnimationType = NPCID.Merchant;
             NPC.Happiness
-            .SetBiomeAffection<OceanBiome>(AffectionLevel.Love);
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Love);
         }
 
+        // I dialoghi casuali appaiono direttamente nel fumetto quando parli con Charles
         public override string GetChat()
         {
-            return "Hi folk. I don't really like people, but you... you seem like someone who can understand me.";
+            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+
+            dialogue.Add("Do you feel this crushing drowsiness in the air? It isn't fatigue... it's the weight of millennia of deep slumber.");
+            dialogue.Add("There is no true life here, but no true death either. Just a motionless waiting that has lasted for eons.");
+            dialogue.Add("The sky above us is perpetually pale. It's almost as if it's afraid to show what once walked upon these lands.");
+            dialogue.Add("No ancient prophecy chose this place. It was just pure bad luck: the foundations of our world built right atop the bed of a nightmare.");
+            dialogue.Add("You walk among fragments of an ancient passage. Every stone here preserves the echoes of a madness our minds cannot comprehend.");
+            dialogue.Add("When the Ancients stirred from their sleep, their sheer, unbridled presence tore tomorrow away from this world.");
+            dialogue.Add("What you see all around you is just the scar. Imagine the lunatic power that carved it into the earth...");
+            dialogue.Add("Every now and then, I think I hear a whisper. Then I realize it's just the residual memory of what lived here before everything else.");
+            dialogue.Add("The Mi-Go do not protect this place out of devotion... they guard it like a cage, or a forgotten sanctuary.");
+            dialogue.Add("If you see strange shadows buzzing across the pale sky, don't try to understand them. Just run.");
+            dialogue.Add("They are servants to entities that transcend time itself. To them, our entire existence is nothing more than the blink of an eye.");
+            dialogue.Add("These lands are barren, yet we are not alone. They watch us—cold, methodical, and distant—from the edges of their sleep.");
+            dialogue.Add("Have you noticed how the wind here never howls? It only murmurs in a language that predates the stars.");
+            dialogue.Add("Some places are cursed because of sins committed. This place is cursed simply because it was in the way when they decided to wake.");
+            dialogue.Add("Look at the ground beneath your feet. Even the dust remembers the weight of footsteps that shouldn't exist.");
+            dialogue.Add("I found an artifact half-buried in the ash yesterday. It felt warm to the touch... as if something inside were still dreaming.");
+            dialogue.Add("Do not gaze too long into the pale mists. Sometimes, shapes move within them that vanish the moment you blink.");
+            dialogue.Add("The Mi-Go care nothing for our gold or our power. They are collecting pieces of a puzzle we were never meant to see completed.");
+            dialogue.Add("Time flows differently in the Consecrated Land. Minutes stretch like centuries, and centuries pass in the space of a heartbeat.");
+            dialogue.Add("If an Ancient ever opens its eyes fully, this reality will snap like dry twigs. Let us pray they remain blind a little longer.");
+
+            return dialogue;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
-        {
-            button = "Dialogue";
-            button2 = null;
+        { 
+            // Bottone impostato come "Shop" (nativo)
+            button = Language.GetTextValue("LegacyInterface.28"); 
+            button2 = ""; // Secondo bottone disattivato
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
+            // Siccome c'è un solo bottone, se viene premuto si apre direttamente lo shop
             if (firstButton)
             {
-                WeightedRandom<string> dialogue = new WeightedRandom<string>();
-
-                dialogue.Add("The sea remembers everything. Every ship that sinks, every name that is forgotten...");
-                dialogue.Add("Do not listen too closely to the waves at night. Sometimes they whisper things that were never meant for human ears.");
-                dialogue.Add("My ancestors made a pact beneath the cold waters. They gained eternity... but lost something far more precious.");
-                dialogue.Add("There are ruins beneath the ocean older than any kingdom of man. Some things down there still wait for their return.");
-                dialogue.Add("The people of this town used to pray to the stars. Now they pray to what lies beyond the waves.");
-                dialogue.Add("Have you ever wondered why the fishermen never speak about what they find in the deep?");
-                dialogue.Add("The fog around this place is not natural. It hides what should remain unseen.");
-                dialogue.Add("I once saw a creature rising from the abyss. I still dream of its impossible shape.");
-                dialogue.Add("The old families of Innsmouth knew the truth: the ocean was never empty.");
-                dialogue.Add("There are voices beneath the tides calling my name. I fear that one day I will answer.");
-
-                Main.npcChatText = dialogue;
+                shopName = ShopName;
             }
         }
 
+        public override void AddShops()
+        {
+            var npcShop = new NPCShop(Type, ShopName);
+
+            npcShop.Add(ItemID.Coral);
+            npcShop.Add(ItemID.Starfish);
+            npcShop.Add(ItemID.Seashell);
+            
+            // Per aggiungere un oggetto personalizzato della mod:
+            // npcShop.Add(ModContent.ItemType<NomeDelTuoOggetto>());
+
+            npcShop.Register();
+        }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             return true;
         }
-
 
         public override void HitEffect(NPC.HitInfo hit)
         {
@@ -109,6 +133,5 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
                 }
             }
         }
-
     }
 }
