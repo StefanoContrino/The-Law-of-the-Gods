@@ -1,31 +1,6 @@
 Mods: {
 	TheLawOfTheGods: {
 		Items: {
-			RedApple: {
-				DisplayName: Red Apple
-				Tooltip: ""
-			}
-
-			Sword: {
-				DisplayName: Sword
-				Tooltip: ""
-			}
-
-			HeartSword: {
-				DisplayName: Heart Sword
-				Tooltip: ""
-			}
-
-			TheJewsBlood: {
-				DisplayName: The Jews Blood
-				Tooltip: ""
-			}
-
-			BreastPlate: {
-				DisplayName: Breast Plate
-				Tooltip: ""
-			}
-
 			DeepScale: {
 				DisplayName: Deep Scale
 				Tooltip: ""
@@ -46,18 +21,11 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ExampleBlock: {
-				DisplayName: Example Block
-				Tooltip: ""
-			}
-
 			ConsecratedGrassSeeds: {
 				DisplayName: Consecrated Grass Seeds
 				Tooltip: ""
 			}
 		}
-
-		Projectiles.TheJewsBloodSlash.DisplayName: The Jews Blood Slash
 
 		NPCs: {
 			Bandit: {
@@ -94,6 +62,12 @@ Mods: {
 					LikeNPC_Princess: I like {NPCName}.
 					Princess_LovesNPC: I like {NPCName}.
 					HateBiome: I hate {BiomeName}.
+					HateNPC: I hate {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					LikeNPC: I like {NPCName}.
+					LoveNPC: I love {NPCName}.
+					DislikeBiome: I dislike {BiomeName}.
+					LikeBiome: I like {BiomeName}.
 				}
 			}
 
