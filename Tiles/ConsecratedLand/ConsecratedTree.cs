@@ -11,9 +11,10 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
 {
     public class ConsecratedTree : ModTree
     {
-        private Asset<Texture2D> texture;
-        private Asset<Texture2D> branchesTexture;
-        private Asset<Texture2D> topsTexture;
+        private static Asset<Texture2D> texture;
+        private static Asset<Texture2D> branchesTexture;
+        private static Asset<Texture2D> topsTexture;
+
 
         public override void SetStaticDefaults()
         {
