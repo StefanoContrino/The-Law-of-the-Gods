@@ -23,8 +23,8 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
             NPCID.Sets.AttackFrameCount[Type] = 4;
             NPCID.Sets.DangerDetectRange[Type] = 500;
             NPCID.Sets.AttackType[Type] = 3; // Attacca corpo a corpo
-            NPCID.Sets.AttackTime[Type] = 60;
-            NPCID.Sets.AttackAverageChance[Type] = 10;
+            NPCID.Sets.AttackTime[Type] = 30;
+            NPCID.Sets.AttackAverageChance[Type] = 1;
             NPCID.Sets.ShimmerTownTransform[Type] = false;
 
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers =
@@ -203,6 +203,28 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
                     );
                 }
             }
+        }
+        public override void TownNPCAttackStrength(ref int damage, ref float knockback) {
+            damage = 20;
+            knockback = 4f;
+        }
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown) {
+            cooldown = 12;
+            randExtraCooldown = 6;
+        }
+        public override void TownNPCAttackSwing(ref int itemWidth, ref int itemHeight) {
+            itemWidth = 40;
+            itemHeight = 40;
+        }
+        public override void DrawTownAttackSwing(ref Texture2D item, ref Rectangle itemFrame, ref int itemSize, ref float scale, ref Vector2 offset) {
+           
+            Main.GetItemDrawFrame(ModContent.ItemType<DeepBroadsword>(), out Texture2D itemTexture, out Rectangle itemRectangle);
+            
+            item = itemTexture;
+            itemFrame = itemRectangle;
+            itemSize = itemRectangle.Width;
+            scale = 0.15f;
+            offset = new Vector2(6, 2);
         }
     }
 }
