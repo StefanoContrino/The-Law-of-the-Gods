@@ -25,49 +25,34 @@ Mods: {
 				DisplayName: Consecrated Grass Seeds
 				Tooltip: ""
 			}
+
+			DeepBow: {
+				DisplayName: Deep Bow
+				Tooltip: ""
+			}
 		}
 
 		NPCs: {
-			Bandit: {
-				DisplayName: Bandit
-
-				TownNPCMood: {
-					Content: I am content.
-					NoHome: I hate not having a home.
-					FarFromHome: I am too far from home.
-					LoveSpace: I love having so much space.
-					DislikeCrowded: I dislike how crowded I am.
-					HateCrowded: I hate how crowded I am.
-					LikeNPC_Princess: I like {NPCName}.
-					Princess_LovesNPC: I like {NPCName}.
-					LoveBiome: I love {BiomeName}.
-					LikeBiome: I like {BiomeName}.
-					DislikeBiome: I dislike {BiomeName}.
-					LikeNPC: I like {NPCName}.
-					DislikeNPC: I dislike {NPCName}.
-				}
-			}
-
 			Charles: {
 				DisplayName: Charles
 
 				TownNPCMood: {
-					Content: I am content.
-					NoHome: I hate not having a home.
-					FarFromHome: I am too far from home.
-					LoveSpace: I love having so much space.
-					DislikeCrowded: I dislike how crowded I am.
-					HateCrowded: I hate how crowded I am.
-					LoveBiome: I love {BiomeName}.
-					LikeNPC_Princess: I like {NPCName}.
-					Princess_LovesNPC: I like {NPCName}.
-					HateBiome: I hate {BiomeName}.
-					HateNPC: I hate {NPCName}.
-					DislikeNPC: I dislike {NPCName}.
-					LikeNPC: I like {NPCName}.
-					LoveNPC: I love {NPCName}.
-					DislikeBiome: I dislike {BiomeName}.
-					LikeBiome: I like {BiomeName}.
+					Content: The stone swallows all noise. Only the quiet dust remains here.
+					NoHome: I lack a cavern roof! The open sky lets the wind mock me. I must find stone below.
+					FarFromHome: I’ve wandered too far into the sun. I need to burrow back beneath before they spot me.
+					LoveSpace: Distance from villagers lets the buried voices speak through the static.
+					DislikeCrowded: Too many breathing mouths and useless chatter. The crypts are far cleaner.
+					HateCrowded: A swarm of cretins! This crush of bodies is eating my thoughts alive.
+					LoveBiome: Blessed Ocean. Its heavy tides drown out the surface noise.
+					LikeNPC_Princess: "{NPCName} is tolerable. She doesn't grind against my temper."
+					Princess_LovesNPC: "{NPCName} lingers around me. Somehow, she stomach's my gloom."
+					HateBiome: Cursed Jungle. That suffocating ceiling of green is torture!
+					HateNPC: "{NPCName} makes my blood boil! That shrill voice begs for silence."
+					DislikeNPC: "{NPCName} and those rattling contraptions. They trigger my migraines."
+					LikeNPC: "{NPCName} understands focus. No chatter, just purpose."
+					LoveNPC: "{NPCName} and I share the same deep loathing for the crowd."
+					DislikeBiome: Wretched Snow. The bitter frost turns my ink to sludge.
+					LikeBiome: The Desert. Scorched, silent, and empty. True peace.
 				}
 			}
 
