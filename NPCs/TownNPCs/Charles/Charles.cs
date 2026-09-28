@@ -21,8 +21,8 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
             Main.npcFrameCount[Type] = 25; // I frame totali di Charles
             NPCID.Sets.ExtraFramesCount[Type] = 9;
             NPCID.Sets.AttackFrameCount[Type] = 4;
-            NPCID.Sets.DangerDetectRange[Type] = 500;
-            NPCID.Sets.AttackType[Type] = 3; // Attacca corpo a corpo
+            NPCID.Sets.DangerDetectRange[Type] = 275; // La distanza da cui attaccherà. 200 è il default e corrisponde a 12.5 tiles
+            NPCID.Sets.AttackType[Type] = 0; // Attacca lanciando
             NPCID.Sets.AttackTime[Type] = 30;
             NPCID.Sets.AttackAverageChance[Type] = 1;
             NPCID.Sets.ShimmerTownTransform[Type] = false;
@@ -209,22 +209,19 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
             knockback = 4f;
         }
         public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown) {
-            cooldown = 12;
-            randExtraCooldown = 6;
+            cooldown = 30;
+            randExtraCooldown = 30;
         }
-        public override void TownNPCAttackSwing(ref int itemWidth, ref int itemHeight) {
-            itemWidth = 40;
-            itemHeight = 40;
+        public override void TownNPCAttackProj(ref int projType, ref int attackDelay) {
+            // Throwing
+            projType = ProjectileID.Shuriken; // Per un proiettile personalizzato: ModContent.ProjectileType<YourProjectileClass>()
+            attackDelay = 10; // Il tempo in tick dopo il quale il proiettile appare dopo l'animazione di attacco
         }
-        public override void DrawTownAttackSwing(ref Texture2D item, ref Rectangle itemFrame, ref int itemSize, ref float scale, ref Vector2 offset) {
-           
-            Main.GetItemDrawFrame(ModContent.ItemType<DeepBroadsword>(), out Texture2D itemTexture, out Rectangle itemRectangle);
-            
-            item = itemTexture;
-            itemFrame = itemRectangle;
-            itemSize = itemRectangle.Width;
-            scale = 0.15f;
-            offset = new Vector2(6, 2);
+        public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset) {
+            // Throwing
+            multiplier = 12f; // La velocità con cui si muove il proiettile
+            gravityCorrection = 2f; // L'altezza con cui l'NPC mirerà
+            randomOffset = 1f; // La velocità del proiettile
         }
     }
 }
