@@ -1,0 +1,62 @@
+Mods: {
+	TheLawOfTheGods: {
+		Items: {
+			DeepScale: {
+				DisplayName: Scaglia profonda
+				Tooltip: ""
+			}
+
+			DeepShortsword: {
+				Tooltip: ""
+				DisplayName: Spada corta dell'Abisso
+			}
+
+			DeepBroadsword: {
+				Tooltip: ""
+				DisplayName: Spadone Profondo
+			}
+
+			ConsecratedSeeds: {
+				DisplayName: Semi Consacrati
+				Tooltip: ""
+			}
+
+			ConsecratedGrassSeeds: {
+				DisplayName: Consecrated Grass Seeds
+				Tooltip: ""
+			}
+
+			DeepBow: {
+				DisplayName: Arco Profondo
+				Tooltip: ""
+			}
+		}
+
+		NPCs: {
+			Charles: {
+				DisplayName: Charles
+
+				TownNPCMood: {
+					Content: The stone swallows all noise. Only the quiet dust remains here.
+					NoHome: I lack a cavern roof! The open sky lets the wind mock me. I must find stone below.
+					FarFromHome: I’ve wandered too far into the sun. I need to burrow back beneath before they spot me.
+					LoveSpace: Distance from villagers lets the buried voices speak through the static.
+					DislikeCrowded: Too many breathing mouths and useless chatter. The crypts are far cleaner.
+					HateCrowded: A swarm of cretins! This crush of bodies is eating my thoughts alive.
+					LoveBiome: Blessed Ocean. Its heavy tides drown out the surface noise.
+					LikeNPC_Princess: "{NPCName} is tolerable. She doesn't grind against my temper."
+					Princess_LovesNPC: "{NPCName} lingers around me. Somehow, she stomach's my gloom."
+					HateBiome: Cursed Jungle. That suffocating ceiling of green is torture!
+					HateNPC: "{NPCName} makes my blood boil! That shrill voice begs for silence."
+					DislikeNPC: "{NPCName} and those rattling contraptions. They trigger my migraines."
+					LikeNPC: "{NPCName} understands focus. No chatter, just purpose."
+					LoveNPC: "{NPCName} and I share the same deep loathing for the crowd."
+					DislikeBiome: Wretched Snow. The bitter frost turns my ink to sludge.
+					LikeBiome: The Desert. Scorched, silent, and empty. True peace.
+				}
+			}
+
+			DeepOne.DisplayName: Deep One
+		}
+	}
+}
