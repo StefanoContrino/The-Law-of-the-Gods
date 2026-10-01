@@ -16,11 +16,6 @@ Mods: {
 				DisplayName: Deep Broadsword
 			}
 
-			ConsecratedSeeds: {
-				DisplayName: Consecrated Seeds
-				Tooltip: ""
-			}
-
 			ConsecratedGrassSeeds: {
 				DisplayName: Consecrated Grass Seeds
 				Tooltip: ""
