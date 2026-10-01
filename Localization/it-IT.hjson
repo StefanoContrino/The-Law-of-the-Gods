@@ -16,13 +16,8 @@ Mods: {
 				DisplayName: Spadone Profondo
 			}
 
-			ConsecratedSeeds: {
-				DisplayName: Semi Consacrati
-				Tooltip: ""
-			}
-
 			ConsecratedGrassSeeds: {
-				DisplayName: Consecrated Grass Seeds
+				DisplayName: Semi Consacrati
 				Tooltip: ""
 			}
 
@@ -37,22 +32,22 @@ Mods: {
 				DisplayName: Charles
 
 				TownNPCMood: {
-					Content: The stone swallows all noise. Only the quiet dust remains here.
-					NoHome: I lack a cavern roof! The open sky lets the wind mock me. I must find stone below.
-					FarFromHome: I’ve wandered too far into the sun. I need to burrow back beneath before they spot me.
-					LoveSpace: Distance from villagers lets the buried voices speak through the static.
-					DislikeCrowded: Too many breathing mouths and useless chatter. The crypts are far cleaner.
-					HateCrowded: A swarm of cretins! This crush of bodies is eating my thoughts alive.
-					LoveBiome: Blessed Ocean. Its heavy tides drown out the surface noise.
-					LikeNPC_Princess: "{NPCName} is tolerable. She doesn't grind against my temper."
-					Princess_LovesNPC: "{NPCName} lingers around me. Somehow, she stomach's my gloom."
-					HateBiome: Cursed Jungle. That suffocating ceiling of green is torture!
-					HateNPC: "{NPCName} makes my blood boil! That shrill voice begs for silence."
-					DislikeNPC: "{NPCName} and those rattling contraptions. They trigger my migraines."
-					LikeNPC: "{NPCName} understands focus. No chatter, just purpose."
-					LoveNPC: "{NPCName} and I share the same deep loathing for the crowd."
-					DislikeBiome: Wretched Snow. The bitter frost turns my ink to sludge.
-					LikeBiome: The Desert. Scorched, silent, and empty. True peace.
+					Content: La pietra inghiottisce ogni rumore. Qui rimane solo la polvere silenziosa.
+					NoHome: Mi manca il tetto di una caverna! Il cielo aperto permette al vento di prendersi gioco di me. Devo trovare la pietra laggiù in basso.
+					FarFromHome: Mi sono spinto troppo lontano verso il sole. Devo scavare per tornare sottoterra prima che mi vedano.
+					LoveSpace: La distanza dagli abitanti permette alle voci sepolte di parlare attraverso la statica.
+					DislikeCrowded: Troppe bocche che respirano e chiacchiere inutili. Le cripte sono molto più pulite.
+					HateCrowded: Un sciame di cretini! Questa folla di corpi mi sta divorando i pensieri vivi.
+					LoveBiome: Benedetto Oceano. Le sue maree pesanti annegano il rumore della superficie.
+					LikeNPC_Princess: "{NPCName} è tollerabile. Non urta la mia pazienza."
+					Princess_LovesNPC: "{NPCName} si aggira intorno a me. Chissà come fa a tollerare la mia cupezza."
+					HateBiome: Giungla Maledetta. Quel soffitto di verde soffocante è una tortura!
+					HateNPC: "{NPCName} mi fa bollire il sangue! Quella voce stridula implora silenzio."
+					DislikeNPC: "{NPCName} e quei congegni tintinnanti. Mi fanno venire l'emicrania."
+					LikeNPC: "{NPCName} comprende la concentrazione. Niente chiacchiere, solo scopo."
+					LoveNPC: "{NPCName} ed io condividiamo lo stesso profondo disgusto per la folla."
+					DislikeBiome: Neve Miserabile. Il gelo pungente trasforma il mio inchiostro in fango.
+					LikeBiome: Il Deserto. Arso, silenzioso e vuoto. Vera pace.
 				}
 			}
 
