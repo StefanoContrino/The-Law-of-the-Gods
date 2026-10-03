@@ -16,11 +16,6 @@ Mods: {
 				DisplayName: Spadone Profondo
 			}
 
-			ConsecratedSeeds: {
-				// DisplayName: Consecrated Seeds
-				// Tooltip: ""
-			}
-
 			ConsecratedGrassSeeds: {
 				DisplayName: Semi Consacrati
 				Tooltip: ""
