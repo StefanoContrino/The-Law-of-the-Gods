@@ -7,9 +7,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TheLawOfTheGods.Tiles.ConsecratedLand
+namespace TheLawOfTheGods.Tiles.DesecratedLand
 {
-    public class ConsecratedTree : ModTree
+    public class DesecratedTree : ModTree
     {
         private static Asset<Texture2D> texture;
         private static Asset<Texture2D> branchesTexture;
@@ -19,7 +19,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         public override void SetStaticDefaults()
         {
             // Imposta l'erba su cui cresce l'albero
-            GrowsOnTileId = [ModContent.TileType<ConsecratedGrass>()];
+            GrowsOnTileId = [ModContent.TileType<DesecratedGrass>()];
 
             // Caricamento corretto delle texture in SetStaticDefaults
             texture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree");
@@ -39,7 +39,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
         public override int SaplingGrowthType(ref int style)
         {
             style = 0;
-            return ModContent.TileType<ConsecratedTreeSapling>();
+            return ModContent.TileType<DesecratedTreeSapling>();
         }
 
         public override void SetTreeFoliageSettings(int i, int j, Tile tile, int xoffset, ref int treeFrame, int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) {

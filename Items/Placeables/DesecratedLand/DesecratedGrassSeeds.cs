@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TheLawOfTheGods.Tiles.ConsecratedLand;
+using TheLawOfTheGods.Tiles.DesecratedLand;
 
-namespace TheLawOfTheGods.Items.Placeables.ConsecratedLand
+namespace TheLawOfTheGods.Items.Placeables.DesecratedLand
 {
-    public class ConsecratedGrassSeeds : ModItem
+    public class DesecratedGrassSeeds : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -33,7 +33,7 @@ namespace TheLawOfTheGods.Items.Placeables.ConsecratedLand
             Item.value = Item.buyPrice(copper: 20); // Prezzo di vendita/acquisto base
         }
 
-        // Logica per trasformare la terra in ConsecratedGrass quando si clicca
+        // Logica per trasformare la terra in DesecratedGrass quando si clicca
         public override bool? UseItem(Player player)
         {
             // Coordinate del tile su cui il giocatore sta cliccando col mouse
@@ -45,8 +45,8 @@ namespace TheLawOfTheGods.Items.Placeables.ConsecratedLand
             // Verifica se il blocco cliccato è attivo ed è Terra Vanilla (Dirt)
             if (tile.HasTile && tile.TileType == TileID.Dirt)
             {
-                // Trasforma il blocco in ConsecratedGrass
-                tile.TileType = (ushort)ModContent.TileType<ConsecratedGrass>();
+                // Trasforma il blocco in DesecratedGrass
+                tile.TileType = (ushort)ModContent.TileType<DesecratedGrass>();
                 
                 // Suono del posizionamento del seme e aggiornamento grafico dei blocchi adiacenti
                 SoundEngine.PlaySound(SoundID.Dig, new Vector2(i * 16, j * 16));
@@ -65,7 +65,7 @@ namespace TheLawOfTheGods.Items.Placeables.ConsecratedLand
         }
 
         /*
-        // Se vuoi aggiungere una ricetta per sintetizzare i semi (es. da una ghianda o da un fiore)
+        // Se si deve aggiungere una ricetta per sintetizzare i semi (es. da una ghianda o da un fiore)
         public override void AddRecipes()
         {
             // CreateRecipe(5)

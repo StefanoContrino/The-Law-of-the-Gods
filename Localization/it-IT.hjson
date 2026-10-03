@@ -25,6 +25,11 @@ Mods: {
 				DisplayName: Arco Profondo
 				Tooltip: ""
 			}
+
+			DesecratedGrassSeeds: {
+				// DisplayName: Desecrated Grass Seeds
+				// Tooltip: ""
+			}
 		}
 
 		NPCs: {
@@ -52,6 +57,7 @@ Mods: {
 			}
 
 			DeepOne.DisplayName: Deep One
+			// DesecratedSlime.DisplayName: Desecrated Slime
 		}
 	}
 }

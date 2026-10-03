@@ -9,9 +9,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace TheLawOfTheGods.Tiles.ConsecratedLand
+namespace TheLawOfTheGods.Tiles.DesecratedLand
 {
-    public class ConsecratedTreeSapling : ModTile
+    public class DesecratedTreeSapling : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -30,7 +30,7 @@ namespace TheLawOfTheGods.Tiles.ConsecratedLand
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileObjectData.newTile.CoordinateWidth = 16;
             TileObjectData.newTile.CoordinatePadding = 2;
-            TileObjectData.newTile.AnchorValidTiles = new[] { ModContent.TileType<ConsecratedGrass>() };
+            TileObjectData.newTile.AnchorValidTiles = new[] { ModContent.TileType<DesecratedGrass>() };
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.DrawFlipHorizontal = true;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;

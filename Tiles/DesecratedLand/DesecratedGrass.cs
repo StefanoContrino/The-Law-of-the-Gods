@@ -4,9 +4,9 @@ using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TheLawOfTheGods.Tiles.ConsecratedLand
+namespace TheLawOfTheGods.Tiles.DesecratedLand
 {
-    public class ConsecratedGrass : ModTile
+    public class DesecratedGrass : ModTile
     {
         public override void SetStaticDefaults()
         {
