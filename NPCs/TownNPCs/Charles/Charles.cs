@@ -126,7 +126,7 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
                 "The Mi-Go care nothing for our gold or our power. They are collecting pieces of a puzzle we were never meant to see completed."
             );
             dialogue.Add(
-                "Time flows differently in the Consecrated Land. Minutes stretch like centuries, and centuries pass in the space of a heartbeat."
+                "Time flows differently in the Desecrated Land. Minutes stretch like centuries, and centuries pass in the space of a heartbeat."
             );
             dialogue.Add(
                 "If an Ancient ever opens its eyes fully, this reality will snap like dry twigs. Let us pray they remain blind a little longer."
@@ -174,7 +174,6 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-
             // Se la vita di Charles scende a 0 o inferiore, appaiono le sue gores
             if (NPC.life <= 0)
             {
@@ -204,20 +203,32 @@ namespace TheLawOfTheGods.NPCs.TownNPCs.Charles
                 }
             }
         }
-        public override void TownNPCAttackStrength(ref int damage, ref float knockback) {
+
+        public override void TownNPCAttackStrength(ref int damage, ref float knockback)
+        {
             damage = 20;
             knockback = 4f;
         }
-        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown) {
+
+        public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
+        {
             cooldown = 30;
             randExtraCooldown = 30;
         }
-        public override void TownNPCAttackProj(ref int projType, ref int attackDelay) {
+
+        public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
+        {
             // Throwing
             projType = ProjectileID.Shuriken; // Per un proiettile personalizzato: ModContent.ProjectileType<YourProjectileClass>()
             attackDelay = 10; // Il tempo in tick dopo il quale il proiettile appare dopo l'animazione di attacco
         }
-        public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset) {
+
+        public override void TownNPCAttackProjSpeed(
+            ref float multiplier,
+            ref float gravityCorrection,
+            ref float randomOffset
+        )
+        {
             // Throwing
             multiplier = 12f; // La velocità con cui si muove il proiettile
             gravityCorrection = 2f; // L'altezza con cui l'NPC mirerà
