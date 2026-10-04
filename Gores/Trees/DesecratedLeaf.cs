@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace TheLawOfTheGods.Gores.Trees
 {
-    public class ConsecratedLeaf : ModGore
+    public class DesecratedLeaf : ModGore
     {
         public override void SetStaticDefaults()
         {

@@ -22,9 +22,9 @@ namespace TheLawOfTheGods.Tiles.DesecratedLand
             GrowsOnTileId = [ModContent.TileType<DesecratedGrass>()];
 
             // Caricamento corretto delle texture in SetStaticDefaults
-            texture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree");
-            branchesTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Branches");
-            topsTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/ConsecratedLand/ConsecratedTree_Tops");
+            texture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/DesecratedLand/DesecratedTree");
+            branchesTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/DesecratedLand/DesecratedTree_Branches");
+            topsTexture = ModContent.Request<Texture2D>("TheLawOfTheGods/Tiles/DesecratedLand/DesecratedTree_Tops");
         }
 
         public override TreePaintingSettings TreeShaderSettings => new TreePaintingSettings
@@ -46,7 +46,7 @@ namespace TheLawOfTheGods.Tiles.DesecratedLand
 			
 		}
 
-        public override int TreeLeaf() => ModContent.GoreType<Gores.Trees.ConsecratedLeaf>();
+        public override int TreeLeaf() => ModContent.GoreType<Gores.Trees.DesecratedLeaf>();
         public override int DropWood() => ItemID.Wood;
 
         public override bool Shake(int x, int y, ref bool createLeaves)
