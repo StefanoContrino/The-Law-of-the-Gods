@@ -58,6 +58,7 @@ Mods: {
 
 			DeepOne.DisplayName: Deep One
 			DesecratedSlime.DisplayName: Desecrated Slime
+			DesecratedZombie.DisplayName: Desecrated Zombie
 		}
 	}
 }
