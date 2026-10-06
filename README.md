@@ -2,18 +2,18 @@
 
 A Terraria mod inspired by Lovecraftian horror and cosmic mysteries, aiming to expand Terraria's lore by introducing a darker atmosphere, deeper storytelling, and new horrors to discover.
 
-This mod will add a large amount of new content, alongside a structured lore that players can uncover throughout their journey.
+This mod will add a large amount of new content, alongside a structured lore that players can uncover throughout their journey. For those who seek deeper understanding, ancient books written in the Old Ones' language (the tongue of Lovecraft) can be found throughout the world. Deciphering these texts not only reveals the tragic history of this fallen world but also grants access to the most powerful equipment available.
 
 Current planned features:
 
 * 2 new Town NPCs
   * Charles
   * Zadok
-* 30 new weapons for each class
-* 17 new enemies, 8 in Pre-Hardmode and 9 in Hardmode
+* 20 new weapons for each class
+* 30 new enemies, 17 in Pre-Hardmode and 13 in Hardmode
 * 3 new biomes: 2 new surface biomes, one of which also generates underground, and 1 space biome
   * Innsmouth
-  * The Consecrated Land
+  * The Desecrated Land
   * The Floating Ruins of R'lyeh
 * A new Snow Temple to expand the existing biome
 * 4 new bosses inspired by Lovecraft's works, 2 in Pre-Hardmode and 2 in Hardmode
@@ -23,6 +23,7 @@ Current planned features:
   * Yuggoth
 * Hundreds of new items, including blocks, gadgets, lore items, and miscellaneous content
 * A custom soundtrack for new structures and biomes
+* Ancient books written in the Old Ones' language, offering both lore insights revealed progressively throughout the story and access to the best equipment
 
 ## Lore
 
