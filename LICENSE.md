@@ -1,7 +1,7 @@
 # Copyright (c) 2026 Thyrhos Games. All rights reserved.
 
 ## 1. PROPRIETARY RIGHTS
-Law of the Gods (the "Project") and all associated source code, visual assets, audio assets, characters, names, logos, trademarks, branding, and related materials are the exclusive proprietary property of Thyrhos Games ("Author") and are protected by applicable intellectual property laws. Except for the limited permission necessary to access and use the Project as intended by the Author, nothing in these terms grants any license, permission, or ownership interest in or to the Author's intellectual property.
+The Law of the Gods (the "Project") and all associated source code, visual assets, audio assets, characters, names, logos, trademarks, branding, and related materials are the exclusive proprietary property of Thyrhos Games ("Author") and are protected by applicable intellectual property laws. Except for the limited permission necessary to access and use the Project as intended by the Author, nothing in these terms grants any license, permission, or ownership interest in or to the Author's intellectual property.
 
 ## 2. RESTRICTIONS
 It is strictly forbidden to copy, modify, distribute, resell, sublicense, or reuse in whole or in part the source code or assets contained in this repository without the explicit written authorization of the Author. The Project cannot be redistributed in any form or in any location other than the officially authorized channels designated by the Author.
