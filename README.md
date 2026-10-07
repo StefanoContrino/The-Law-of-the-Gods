@@ -9,7 +9,7 @@ Current planned features:
 * 2 new Town NPCs
   * Charles
   * Zadok
-* 20 new weapons for each class
+* Various new weapons for each class
 * 30 new enemies, 17 in Pre-Hardmode and 13 in Hardmode
 * 3 new biomes: 2 new surface biomes, one of which also generates underground, and 1 space biome
   * Innsmouth
