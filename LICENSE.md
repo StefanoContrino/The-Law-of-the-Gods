@@ -7,7 +7,7 @@ The Law of the Gods (the "Project") and all associated source code, visual asset
 It is strictly forbidden to copy, modify, distribute, resell, sublicense, or reuse in whole or in part the source code or assets contained in this repository without the explicit written authorization of the Author. The Project cannot be redistributed in any form or in any location other than the officially authorized channels designated by the Author.
 
 ## 3. CONTRIBUTIONS
-Contributions (defined hereafter as any original code, artwork, audio, documentation, suggestions, or other materials submitted to the Project) are welcome. By submitting any Contributions to the Law of the Gods repository, you acknowledge and agree to the following:
+Contributions (defined hereafter as any original code, artwork, audio, documentation, suggestions, or other materials submitted to the Project) are welcome. By submitting any Contributions to The Law of the Gods repository, you acknowledge and agree to the following:
 
    a. Assignment. Upon submission, you assign to Thyrhos Games all right, title, and interest in any copyright you have in the Contributions.
    
