@@ -16,13 +16,18 @@ Mods: {
 				DisplayName: Spadone Profondo
 			}
 
-			DesecratedGrassSeeds: {
-				DisplayName: Semi Profanati
-				Tooltip: ""
+			ConsecratedGrassSeeds: {
+				// DisplayName: Consecrated Grass Seeds
+				// Tooltip: ""
 			}
 
 			DeepBow: {
 				DisplayName: Arco Profondo
+				Tooltip: ""
+			}
+
+			DesecratedGrassSeeds: {
+				DisplayName: Semi Profanati
 				Tooltip: ""
 			}
 		}
@@ -52,8 +57,8 @@ Mods: {
 			}
 
 			DeepOne.DisplayName: Deep One
-			// DesecratedSlime.DisplayName: Slime Profanato
-			// DesecratedZombie.DisplayName: Zombi Profanato
+			// DesecratedSlime.DisplayName: Desecrated Slime
+			// DesecratedZombie.DisplayName: Desecrated Zombie
 		}
 	}
 }
