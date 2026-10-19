@@ -30,6 +30,11 @@ Mods: {
 				DisplayName: Semi Profanati
 				Tooltip: ""
 			}
+
+			Desecratedwood: {
+				// DisplayName: Desecratedwood
+				// Tooltip: ""
+			}
 		}
 
 		NPCs: {
@@ -60,5 +65,7 @@ Mods: {
 			// DesecratedSlime.DisplayName: Desecrated Slime
 			// DesecratedZombie.DisplayName: Desecrated Zombie
 		}
+
+		// Tiles.DesecratedwoodTile.MapEntry: Desecratedwood Tile
 	}
 }
