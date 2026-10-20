@@ -6,6 +6,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheLawOfTheGods.Tiles.FurnitureDesecratedwood;
 
 namespace TheLawOfTheGods.Tiles.DesecratedLand
 {
@@ -47,7 +48,7 @@ namespace TheLawOfTheGods.Tiles.DesecratedLand
 		}
 
         public override int TreeLeaf() => ModContent.GoreType<Gores.Trees.DesecratedLeaf>();
-        public override int DropWood() => ItemID.Wood;
+        public override int DropWood() => ModContent.TileType<DesecratedwoodTile>();
 
         public override bool Shake(int x, int y, ref bool createLeaves)
         {
